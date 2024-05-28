@@ -1,49 +1,30 @@
 #include "ofApp.h"
 
 //--------------------------------------------------------------
-void ofApp::setup() {}
+void ofApp::setup() {
+  ofSetBackgroundColor(255);
+  ofSetCircleResolution(64);
+
+  const int DOG_SIZE = 100;
+  const int NUM_DOG_X = 1 + ofGetWindowWidth() / DOG_SIZE;
+  const int NUM_DOG_Y = 1 + ofGetWindowHeight() / DOG_SIZE;
+
+  for (int y = 0; y < NUM_DOG_Y; y++) {
+    for (int x = 0; x < NUM_DOG_X; x++) {
+      const float dogX = (x + 0.5) * DOG_SIZE;
+      const float dogY = (y + 0.5) * DOG_SIZE;
+      const ofColor color = x % 2 ? 100 : 200;
+      dogs.push_back(Dog(dogX, dogY, DOG_SIZE, color));
+    }
+  }
+}
 
 //--------------------------------------------------------------
-void ofApp::update() {}
+void ofApp::draw() {
+  for (const auto& dog : dogs) {
+    dog.draw();
+  }
+}
 
 //--------------------------------------------------------------
-void ofApp::draw() {}
-
-//--------------------------------------------------------------
-void ofApp::exit() {}
-
-//--------------------------------------------------------------
-void ofApp::keyPressed(int key) {}
-
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key) {}
-
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y) {}
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button) {}
-
-//--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button) {}
-
-//--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button) {}
-
-//--------------------------------------------------------------
-void ofApp::mouseScrolled(int x, int y, float scrollX, float scrollY) {}
-
-//--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y) {}
-
-//--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y) {}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h) {}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg) {}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo) {}
+void ofApp::windowResized(int w, int h) { setup(); }
