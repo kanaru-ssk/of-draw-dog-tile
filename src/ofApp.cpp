@@ -6,8 +6,8 @@ void ofApp::setup() {
   ofSetCircleResolution(64);
 
   const int DOG_SIZE = 100;
-  const int NUM_DOG_X = 1 + ofGetWindowWidth() / DOG_SIZE;
-  const int NUM_DOG_Y = 1 + ofGetWindowHeight() / DOG_SIZE;
+  const int NUM_DOG_X = 1 + ofGetWidth() / DOG_SIZE;
+  const int NUM_DOG_Y = 1 + ofGetHeight() / DOG_SIZE;
 
   for (int y = 0; y < NUM_DOG_Y; y++) {
     for (int x = 0; x < NUM_DOG_X; x++) {
