@@ -8,15 +8,6 @@ class Dog {
   Dog(int x, int y, int size, ofColor color)
       : x_(x), y_(y), size_(size), color_(color) {}
 
-  int getX() const { return x_; }
-  void setX(int x) { x_ = x; }
-  int getY() const { return y_; }
-  void setY(int y) { y_ = y; }
-  int getSize() const { return size_; }
-  void setSize(int size) { size_ = size; }
-  ofColor getColor() const { return color_; }
-  void setColor(ofColor color) { color_ = color; }
-
   void draw() const;
 
  private:
